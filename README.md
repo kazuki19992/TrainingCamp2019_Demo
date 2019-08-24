@@ -1,0 +1,2 @@
+# TrainingCamp2019_Demo
+2019年の合宿用デモサイトです
