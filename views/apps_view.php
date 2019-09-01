@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>Questions</title>
+        <title>Share!</title>
         
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1.0">
@@ -70,7 +70,7 @@
             <?php require('./views/nav_menu.php'); ?>
             <center>
 
-            <h1 class="title">Questions</h1>
+            <h1 class="title">Share!</h1>
             <div class="info">この掲示板の基幹部分は<a  href="https://qiita.com/torokko/items/8a07519782f01a68c627">このページ</a>を参考にしました。</div>
             <BR>
 
@@ -103,7 +103,37 @@
 
             <BR>
             <h4 class="bbslisttitle">投稿する！</h4>
-            <?php echo $build; ?>
+            <!-- <?php echo $build; ?> -->
+
+            <script>
+            $(document).ready(function() {
+                $('input#input_text, textarea#textarea2').characterCounter();
+            });
+            </script>
+
+            
+            <form action="build.php" method="post">
+            <!-- <input type="hidden" name="post_user" value="<?php echo $member['email']; ?>"> -->
+            <table style="border:none;">
+                <tr style="border:none;">
+                    <td style="width:70%; border:none;">
+                        <div class="input-field" >
+                            <input id="bbs" type="text" class="validate" name="bbs" data-length="120">
+                            <label for="bbs">あなたの今の思いをシェアしよう！</label>
+                        </div>
+                    </td>
+                    <td style="width:30%; border:none;">
+                        <div class="input-field" >
+                            <input id="deletePass" type="password" class="validate" name="delete_pass" data-length="120">
+                            <label for="deletePass">削除用パスワード(任意)</label>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <button class="btn waves-effect waves-light light-green darken-1" type="submit" name="newbbs[]"><i class="material-icons right">send</i>Share!</button>
+            </form>
+            
+
             <h4 class="bbslisttitle">掲示板</h4>
             <?php echo $html; ?>
             <!-- <?php echo $build; ?> -->
